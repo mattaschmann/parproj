@@ -35,8 +35,16 @@ function scrapePlayers() {
       owner = player[3].querySelector('div').innerText;
     }
 
+    var opponent = '';
+    if (player[1].querySelectorAll('.ysf-game-status a')[1]) {
+      opponent = player[1].querySelectorAll('.ysf-game-status a')[1].innerText;
+    } else {
+      opponent = 'Bye';
+    }
+
     var parsedPlayer = [
       player[1].querySelector('.name').innerText, // player name
+      opponent, // opponent
       owner, // owner
       player[4].querySelector('div').innerText, // gamesplayed
       player[5].querySelector('div').innerText, // points
@@ -56,7 +64,7 @@ function scrapePlayers() {
       player[22].querySelector('div').innerText // fumbles lost
     ];
 
-    if (parsedPlayer[3] === '0.00') {
+    if (parsedPlayer[4] === '0.00') {
       return true;
     }
 
