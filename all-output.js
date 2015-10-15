@@ -44,6 +44,7 @@ function scrapePlayers() {
 
     var parsedPlayer = [
       player[1].querySelector('.name').innerText, // player name
+      player[1].querySelector('.ysf-player-name span').innerText, // position
       opponent, // opponent
       owner, // owner
       player[4].querySelector('div').innerText, // gamesplayed
@@ -64,7 +65,7 @@ function scrapePlayers() {
       player[22].querySelector('div').innerText // fumbles lost
     ];
 
-    if (parsedPlayer[4] === '0.00') {
+    if (parsedPlayer[5] === '0.00') {
       return true;
     }
 
