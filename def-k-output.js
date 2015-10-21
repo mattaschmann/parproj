@@ -1,5 +1,3 @@
-// @Matt DOCS
-
 var parsedPlayers = [];
 
 var $nextButton = $('.pagingnav .last a');
