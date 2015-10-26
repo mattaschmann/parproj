@@ -1,5 +1,3 @@
-// @Matt DOCS
-
 var parsedPlayers = [];
 
 var $nextButton = $('.pagingnav .last a');
@@ -20,7 +18,7 @@ var interval = setInterval(function() {
   } else {
     $nextButton.click();
   }
-}, 1000);
+}, 1500);
 
 function scrapePlayers() {
   var players = document.querySelectorAll('.players tbody tr');
