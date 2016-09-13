@@ -37,9 +37,8 @@ function scrapePlayers() {
     }
 
     var opponent = '';
-    if (player[1].querySelectorAll('.ysf-game-status a')[0]) {
-      var opponentArray = player[1].querySelectorAll('.ysf-game-status a')[0].innerText.split(' ');
-      opponent = opponentArray[opponentArray.length - 1];
+    if (player[1].querySelectorAll('.ysf-game-status a')[1]) {
+      opponent = player[1].querySelectorAll('.ysf-game-status a')[1].innerText;
     } else {
       opponent = 'Bye';
     }
