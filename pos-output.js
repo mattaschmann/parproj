@@ -1,3 +1,6 @@
+var my$ = $;
+var myCopy = copy;
+
 var parsedPlayers = [];
 
 var $nextButton = $('.pagingnav .last a');
@@ -7,13 +10,12 @@ $nextButton.click();
 
 var interval = setInterval(function() {
   var exitEarly = scrapePlayers();
-
-  $nextButton = $('.pagingnav .last a');
+  $nextButton = my$('.pagingnav .last a');
   if (exitEarly || $nextButton === null) {
     clearInterval(interval);
     interval = null;
 
-    copy(parsedPlayers.join('\n'));
+    myCopy(parsedPlayers.join('\n'));
     alert('Finished!');
   } else {
     $nextButton.click();
@@ -34,8 +36,9 @@ function scrapePlayers() {
     }
 
     var opponent = '';
-    if (player[1].querySelectorAll('.ysf-game-status a')[1]) {
-      opponent = player[1].querySelectorAll('.ysf-game-status a')[1].innerText;
+    if (player[1].querySelectorAll('.ysf-game-status a')[0]) {
+      var opponentArray = player[1].querySelectorAll('.ysf-game-status a')[0].innerText.split(' ');
+      opponent = opponentArray[opponentArray.length - 1];
     } else {
       opponent = 'Bye';
     }
@@ -46,21 +49,21 @@ function scrapePlayers() {
       opponent, // opponent
       owner, // owner
       player[4].querySelector('div').innerText, // gamesplayed
-      player[5].querySelector('div').innerText, // points
-      player[9].querySelector('div').innerText, // pass yards
-      player[10].querySelector('div').innerText, // pass td's
-      player[11].querySelector('div').innerText, // interceptions
-      player[12].querySelector('div').innerText, // rush attempts
-      player[13].querySelector('div').innerText, // rush yards
-      player[14].querySelector('div').innerText, // rush td's
-      player[15].querySelector('div').innerText, // targets
-      player[16].querySelector('div').innerText, // receptions
-      player[17].querySelector('div').innerText, // reception yards
-      player[18].querySelector('div').innerText, // reception td's
-      player[19].querySelector('div').innerText, // return yards
-      player[20].querySelector('div').innerText, // return td's
-      player[21].querySelector('div').innerText, // 2pt conversions
-      player[22].querySelector('div').innerText // fumbles lost
+      player[6].querySelector('div').innerText, // points
+      player[10].querySelector('div').innerText, // pass yards
+      player[11].querySelector('div').innerText, // pass td's
+      player[12].querySelector('div').innerText, // interceptions
+      player[13].querySelector('div').innerText, // rush attempts
+      player[14].querySelector('div').innerText, // rush yards
+      player[15].querySelector('div').innerText, // rush td's
+      player[16].querySelector('div').innerText, // targets
+      player[17].querySelector('div').innerText, // receptions
+      player[18].querySelector('div').innerText, // reception yards
+      player[19].querySelector('div').innerText, // reception td's
+      player[20].querySelector('div').innerText, // return yards
+      player[21].querySelector('div').innerText, // return td's
+      player[22].querySelector('div').innerText, // 2pt conversions
+      player[23].querySelector('div').innerText // fumbles lost
     ];
 
     if (parsedPlayer[5] === '0.00') {

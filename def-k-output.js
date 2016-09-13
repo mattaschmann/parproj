@@ -1,3 +1,6 @@
+var my$ = $;
+var myCopy = copy;
+
 var parsedPlayers = [];
 
 var $nextButton = $('.pagingnav .last a');
@@ -8,12 +11,12 @@ $nextButton.click();
 var interval = setInterval(function() {
   var exitEarly = scrapePlayers();
 
-  $nextButton = $('.pagingnav .last a');
+  $nextButton = my$('.pagingnav .last a');
   if (exitEarly || $nextButton === null) {
     clearInterval(interval);
     interval = null;
 
-    copy(parsedPlayers.join('\n'));
+    myCopy(parsedPlayers.join('\n'));
     alert('Finished!');
   } else {
     $nextButton.click();
@@ -34,8 +37,9 @@ function scrapePlayers() {
     }
 
     var opponent = '';
-    if (player[1].querySelectorAll('.ysf-game-status a')[1]) {
-      opponent = player[1].querySelectorAll('.ysf-game-status a')[1].innerText;
+    if (player[1].querySelectorAll('.ysf-game-status a')[0]) {
+      var opponentArray = player[1].querySelectorAll('.ysf-game-status a')[0].innerText.split(' ');
+      opponent = opponentArray[opponentArray.length - 1];
     } else {
       opponent = 'Bye';
     }
@@ -46,7 +50,7 @@ function scrapePlayers() {
       opponent, // opponent
       owner, // owner
       player[4].querySelector('div').innerText, // gamesplayed
-      player[5].querySelector('div').innerText, // points
+      player[6].querySelector('div').innerText // points
     ];
 
     if (parsedPlayer[5] === '0.00') {
