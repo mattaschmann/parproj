@@ -3,10 +3,7 @@
 
 let parsedPlayers = [];
 
-let $callButton = $('.navlist .last a');
-
 scrapePlayers();
-$callButton.click();
 
 copy(parsedPlayers.join('\n'));
 alert('Finished!');
