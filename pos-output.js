@@ -47,8 +47,8 @@ function scrapePlayers() {
       player[1].querySelector('.ysf-player-name span').innerText, // position
       opponent, // opponent
       owner, // owner
-      player[4].querySelector('div').innerText, // gamesplayed
-      player[6].querySelector('div').innerText, // points
+      player[4].querySelector('div').innerText,  // gamesplayed
+      player[6].querySelector('div').innerText,  // points
       player[10].querySelector('div').innerText, // pass yards
       player[11].querySelector('div').innerText, // pass td's
       player[12].querySelector('div').innerText, // interceptions
@@ -62,7 +62,7 @@ function scrapePlayers() {
       player[20].querySelector('div').innerText, // return yards
       player[21].querySelector('div').innerText, // return td's
       player[22].querySelector('div').innerText, // 2pt conversions
-      player[23].querySelector('div').innerText // fumbles lost
+      player[23].querySelector('div').innerText  // fumbles lost
     ];
 
     if (parsedPlayer[5] === '0.00') {
