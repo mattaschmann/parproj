@@ -19,6 +19,6 @@ function scrapePlayers () {
       player[0].querySelector('.ysf-player-status').innerText.trim()  // player status
     ];
 
-    parsedPlayers.push(parsedPlayer.join('\t'));
+    if (parsedPlayer[1] !== 'Inactive') parsedPlayers.push(parsedPlayer.join('\t'));
   });
 }
