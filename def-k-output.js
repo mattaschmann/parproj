@@ -17,7 +17,7 @@ var interval = setInterval(function() {
     interval = null;
 
     myCopy(parsedPlayers.join('\n'));
-    alert('Finished!');
+    console.log('Finished!');
   } else {
     $nextButton.click();
   }
