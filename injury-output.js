@@ -6,7 +6,7 @@ let parsedPlayers = [];
 scrapePlayers();
 
 copy(parsedPlayers.join('\n'));
-alert('Finished!');
+console.log('Finished!');
 
 function scrapePlayers () {
   let players = $$('#gamedayscalltable tr:not(.Last)');
